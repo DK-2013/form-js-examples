@@ -1,6 +1,9 @@
 import { useEffect } from 'preact/hooks';
 import { FormPlayground } from '@bpmn-io/form-js';
 
+import RenderExtension from './render';
+import PropertiesPanelExtension from './propertiesPanel';
+
 import '@bpmn-io/form-js/dist/assets/form-js.css';
 import '@bpmn-io/form-js/dist/assets/form-js-editor.css';
 import '@bpmn-io/form-js/dist/assets/form-js-playground.css';
@@ -18,6 +21,16 @@ export function App() {
       container,
       schema,
       data: {},
+
+      // load rendering extension
+      additionalModules: [
+        RenderExtension
+      ],
+
+      // load properties panel extension
+      editorAdditionalModules: [
+        PropertiesPanelExtension
+      ]
     });
   }, []);
   return (
